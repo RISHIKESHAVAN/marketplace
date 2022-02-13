@@ -10,7 +10,7 @@ module.exports = {
     },
   },
   contracts_directory: './src/contracts/', // location of the smart contracts
-  contracts_build_directory: './src/abis/', // location of compiled smart contracts - ABI: Abstract Binary Interface
+  contracts_build_directory: './src/artifacts/', // location of compiled smart contracts - ABI: Abstract Binary Interface
   compilers: {
     solc: {
       optimizer: {

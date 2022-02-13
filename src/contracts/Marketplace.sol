@@ -1,10 +1,11 @@
 pragma solidity ^0.5.0;
 
 contract Marketplace {
-    // This smart contract will handle all the logic to buy and sell on the marketplace.
-    // This will also read from and write to the blockchain.
 
     // state variable
+    // Whenever a public variable is declared, a function is automatically
+    // created with the same name of the variable, that returns the value
+    // of the variable when called [ in this case, it is 'name()' ].
     string public name;
 
     // constructors are run only once - when the smart contract is deployed
