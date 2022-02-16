@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity >=0.5.0;
 
 contract Marketplace {
 
@@ -42,4 +42,34 @@ contract Marketplace {
     */
     uint public productCount = 0;
 
+    /**
+    Events are created in order to emit logs that can later be monitored 
+    */
+    event ProductCreated(
+        uint id,
+        string name,
+        uint price,
+        address owner,
+        bool purchased
+    );
+
+    /**
+    Params:
+    _name - name of the product
+    _price - price of the product. Contracts always deal in Wei. 1ETH = 10^18Wei 
+    */
+    function createProduct(
+        string memory _name, 
+        uint _price
+         ) public {
+        // Make sure params are correct
+        require(bytes(_name).length > 0);
+        require(_price > 0);
+        // Increment the product count
+        productCount++;
+        // Create a Product
+        products[productCount] = Product(productCount,_name, _price, msg.sender,false);
+        // Trigger an event
+        emit ProductCreated(productCount,_name, _price, msg.sender,false);
+    }
 }
