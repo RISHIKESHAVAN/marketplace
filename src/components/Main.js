@@ -18,7 +18,7 @@ class Main extends Component {
               type="text"
               ref={(input) => { this.productName = input }}
               className="form-control"
-              placeholder="Product Name"
+              placeholder="Product name"
               required />
           </div>
           <div className="form-group mr-sm-2">
@@ -27,7 +27,7 @@ class Main extends Component {
               type="text"
               ref={(input) => { this.productPrice = input }}
               className="form-control"
-              placeholder="Product Price"
+              placeholder="Product price in Ether"
               required />
           </div>
           <button type="submit" className="btn btn-primary">Add Product</button>
@@ -45,27 +45,17 @@ class Main extends Component {
             </tr>
           </thead>
           <tbody id="productList">
-            <tr>
-              <th scope="row">1</th>
-              <td>iPhone x</td>
-              <td>1 Eth</td>
-              <td>0x39C7BC5496f4eaaa1fF75d88E079C22f0519E7b9</td>
-              <td><button className="buyButton">Buy</button></td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Macbook Pro</td>
-              <td>3 eth</td>
-              <td>0x39C7BC5496f4eaaa1fF75d88E079C22f0519E7b9</td>
-              <td><button className="buyButton">Buy</button></td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Airpods</td>
-              <td>0.5 eth</td>
-              <td>0x39C7BC5496f4eaaa1fF75d88E079C22f0519E7b9</td>
-              <td><button className="buyButton">Buy</button></td>
-            </tr>
+            {this.props.products.map((product, key) => {
+              return (
+              <tr key={key}>
+                <th scope="row">{product.id.toString()}</th>
+                <td>{product.name.toString()}</td>
+                <td>{window.web3.utils.fromWei(product.price.toString(), 'Ether')} Eth</td>
+                <td>{product.owner.toString()}</td>
+                <td><button className="buyButton">Buy</button></td>
+              </tr>
+              )
+            })}
           </tbody>
         </table>
     </div>

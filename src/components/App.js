@@ -43,7 +43,18 @@ class App extends Component {
     if (networkData) {
       const marketplace = web3.eth.Contract(abi, networkData.address)
       this.setState({marketplace}) // shorthand for this.setState({marketplace : marketplace})
+      const productCount = await marketplace.methods.productCount().call()
+      console.log("productCount = ",productCount.toString())
+      // Load the products
+      for(var i = 1; i <= productCount; i++) {
+        const product = await marketplace.methods.products(i).call()
+        this.setState({
+          products : [...this.state.products, product]
+        })
+      }
+      
       this.setState({loading : false})
+      // console.log(this.state.products)
     } else {
       window.alert("Marketplace contract not deployed to detected network!!")
     }
@@ -57,6 +68,16 @@ class App extends Component {
       products : [],
       loading : true
     };
+
+    this.createProduct = this.createProduct.bind(this)
+  }
+
+  createProduct(name, price) {
+    this.setState({loading : true})
+    this.state.marketplace.methods.createProduct(name, price).send({from : this.state.account})
+    .once('receipt', (receipt) => { 
+      this.setState({loading : false})
+    })
   }
   
   render() {
@@ -68,7 +89,9 @@ class App extends Component {
             <main role="main" className="col-lg-12 d-flex">
               { this.state.loading 
                 ? <div id='loader' className='text-center'><p className='text-center'>Loading...</p></div>
-                : <Main />
+                : <Main 
+                  products = {this.state.products}
+                  createProduct = {this.createProduct}/>
               }
             </main>
           </div>
