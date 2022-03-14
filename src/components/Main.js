@@ -52,7 +52,20 @@ class Main extends Component {
                 <td>{product.name.toString()}</td>
                 <td>{window.web3.utils.fromWei(product.price.toString(), 'Ether')} Eth</td>
                 <td>{product.owner.toString()}</td>
-                <td><button className="buyButton">Buy</button></td>
+                <td>
+                  {this.props.userAccount.toString() !== product.owner.toString().toLowerCase()
+                  ? <button 
+                    name = {product.id}
+                    value = {product.price}
+                    onClick={(event) => {
+                        this.props.purchaseProduct(event.target.name, event.target.value)
+                        console.log(this.props.userAccount)
+                    }}>
+                    Buy
+                    </button>
+                  : null
+                  }
+                </td>
               </tr>
               )
             })}

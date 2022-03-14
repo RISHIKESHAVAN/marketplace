@@ -70,11 +70,20 @@ class App extends Component {
     };
 
     this.createProduct = this.createProduct.bind(this)
+    this.purchaseProduct = this.purchaseProduct.bind(this)
   }
 
   createProduct(name, price) {
     this.setState({loading : true})
     this.state.marketplace.methods.createProduct(name, price).send({from : this.state.account})
+    .once('receipt', (receipt) => { 
+      this.setState({loading : false})
+    })
+  }
+
+  purchaseProduct(id, price) {
+    this.setState({loading : true})
+    this.state.marketplace.methods.purchaseProduct(id).send({from : this.state.account, value : price})
     .once('receipt', (receipt) => { 
       this.setState({loading : false})
     })
@@ -90,8 +99,10 @@ class App extends Component {
               { this.state.loading 
                 ? <div id='loader' className='text-center'><p className='text-center'>Loading...</p></div>
                 : <Main 
+                  userAccount={this.state.account}
                   products = {this.state.products}
-                  createProduct = {this.createProduct}/>
+                  createProduct = {this.createProduct}
+                  purchaseProduct = {this.purchaseProduct}/>
               }
             </main>
           </div>
