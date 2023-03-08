@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Web3 from 'web3';
-// import logo from '../logo.png';
 import './App.css';
 import Marketplace from '../artifacts/Marketplace.json'
 import Navbar from './Navbar.js'
@@ -13,6 +12,7 @@ class App extends Component {
     // This is run everytime the component gets created
     await this.loadWeb3();
     await this.loadBlockchainData();
+    // window.alert("Please ensure you are connected to the Sepolia Test Net.")
   }
   
   async loadWeb3() {
@@ -44,19 +44,23 @@ class App extends Component {
       const marketplace = web3.eth.Contract(abi, networkData.address)
       this.setState({marketplace}) // shorthand for this.setState({marketplace : marketplace})
       const productCount = await marketplace.methods.productCount().call()
-      console.log("productCount = ",productCount.toString())
       // Load the products
       for(var i = 1; i <= productCount; i++) {
         const product = await marketplace.methods.products(i).call()
         this.setState({
           products : [...this.state.products, product]
         })
+        if (product.owner.toString().toLowerCase() === this.state.account && product.purchased) {
+          this.setState({
+            ownedProducts : [...this.state.ownedProducts, product]
+          })
+        }
       }
       
       this.setState({loading : false})
       // console.log(this.state.products)
     } else {
-      window.alert("Marketplace contract not deployed to detected network!!")
+      window.alert("Marketplace contract not deployed to detected network!! Please ensure you are connected to the Sepolia Testnet.")
     }
   }
 
@@ -66,6 +70,7 @@ class App extends Component {
       account : '',
       productCount : 0,
       products : [],
+      ownedProducts : [],
       loading : true
     };
 
@@ -102,7 +107,8 @@ class App extends Component {
                   userAccount={this.state.account}
                   products = {this.state.products}
                   createProduct = {this.createProduct}
-                  purchaseProduct = {this.purchaseProduct}/>
+                  purchaseProduct = {this.purchaseProduct}
+                  ownedProducts = {this.state.ownedProducts}/>
               }
             </main>
           </div>
