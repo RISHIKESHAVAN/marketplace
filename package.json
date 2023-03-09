@@ -2,7 +2,13 @@
   "name": "eth-marketplace",
   "version": "0.1.0",
   "description": "An Ethereum Marketplace",
-  "author": "gregory@dappuniversity.com",
+  "author": "https://rishikeshavan.com/",
+  "homepage": "https://marketplace.github.io/",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RISHIKESHAVAN/marketplace.git"
+  },
   "dependencies": {
     "alchemy-sdk": "^2.6.0",
     "babel-polyfill": "6.26.0",
