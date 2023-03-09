@@ -11,8 +11,6 @@ class Main extends Component {
     <div id="content">
         <Info/>
 
-        <Sell
-        createProduct = {this.props.createProduct}/>
         
         <Buy 
         userAccount={this.props.userAccount}
@@ -20,6 +18,8 @@ class Main extends Component {
         createProduct = {this.props.createProduct}
         purchaseProduct = {this.props.purchaseProduct}/>
 
+        <Sell
+        createProduct = {this.props.createProduct}/>
         <Purchased 
         userAccount={this.props.userAccount}
         products = {this.props.products}

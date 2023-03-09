@@ -3,6 +3,10 @@
 A marketplace application based on blockchain where people can buy stuff that are posted by sellers.
 https://www.dappuniversity.com/articles/how-to-build-a-blockchain-app
 
+Marketplace.sol deployed in Sepolia - https://sepolia.etherscan.io/tx/0x760475979d88a1cae08af8928260bea392f0efabf93641edc13724340656edd1
+Contract address - 0x3532C405AbF2C3226342Cf9E31F72F092b7D43fD
+https://sepolia.etherscan.io/address/0x3532c405abf2c3226342cf9e31f72f092b7d43fd
+
 ## Folder structure
 
 - [_migrations/_](migrations/) - Contains the migration scripts.
