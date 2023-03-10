@@ -28,11 +28,7 @@ jobs:
           git config user.name "Automated"
           git config user.email "actions@users.noreply.github.com"
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/RISHIKESHAVAN/marketplace.git
-          npm run build
-          npm run start
+          npm run predeploy
       - name: Deploy
-        # https://github.com/JamesIves/github-pages-deploy-action
-        uses: JamesIves/github-pages-deploy-action@v4.4.1
-        with:
-          branch: gh-pages
-          folder: out
+        run: |
+          npm run deploy
