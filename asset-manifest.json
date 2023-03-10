@@ -1,15 +1,15 @@
 {
-  "main.css": "/marketplace/static/css/main.a07dd938.chunk.css",
-  "main.js": "/marketplace/static/js/main.0f2133a2.chunk.js",
-  "main.js.map": "/marketplace/static/js/main.0f2133a2.chunk.js.map",
+  "main.css": "/marketplace/static/css/main.5bb053a0.chunk.css",
+  "main.js": "/marketplace/static/js/main.3e5a06ab.chunk.js",
+  "main.js.map": "/marketplace/static/js/main.3e5a06ab.chunk.js.map",
   "static/css/1.997db836.chunk.css": "/marketplace/static/css/1.997db836.chunk.css",
   "static/js/1.a250ce44.chunk.js": "/marketplace/static/js/1.a250ce44.chunk.js",
   "static/js/1.a250ce44.chunk.js.map": "/marketplace/static/js/1.a250ce44.chunk.js.map",
   "runtime~main.js": "/marketplace/static/js/runtime~main.dcfa41e5.js",
   "runtime~main.js.map": "/marketplace/static/js/runtime~main.dcfa41e5.js.map",
-  "static/css/main.a07dd938.chunk.css.map": "/marketplace/static/css/main.a07dd938.chunk.css.map",
   "static/css/1.997db836.chunk.css.map": "/marketplace/static/css/1.997db836.chunk.css.map",
+  "static/css/main.5bb053a0.chunk.css.map": "/marketplace/static/css/main.5bb053a0.chunk.css.map",
   "index.html": "/marketplace/index.html",
-  "precache-manifest.947f789f873add7140edfaeab081d16a.js": "/marketplace/precache-manifest.947f789f873add7140edfaeab081d16a.js",
+  "precache-manifest.f4d625c53a57087c4684db9c56bbf9e8.js": "/marketplace/precache-manifest.f4d625c53a57087c4684db9c56bbf9e8.js",
   "service-worker.js": "/marketplace/service-worker.js"
 }
