@@ -23,6 +23,7 @@ jobs:
           RUNTIME_ENV: non-prod
           REACT_APP_GA_TRACKING_ID: add-GA-ID-here
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_OPTIONS: "--openssl-legacy-provider"
         run: |
           git config user.name "Automated"
           git config user.email "actions@users.noreply.github.com"
