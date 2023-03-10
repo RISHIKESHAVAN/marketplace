@@ -22,6 +22,8 @@
 
 .buy {
 	width: 60%;
+	/* position: relative; */
+	float: left;
 }
 /* .table {
 	width: 60%;
@@ -29,12 +31,20 @@
 
 .selling {
 	width: 30%;
-	position: absolute;
-	right: 1%;
+	position: relative;
+    right: -70%;
+    top: -20%;
+	/* position: absolute; */
+	/* float: right; */
+	/* position: absolute; */
+	/* right: 1%; */
 }
 
 .purchased {
 	width: 30%;
-	position: absolute;
-	right: 1%;
+	position: relative;
+	right: -70%;
+    top: -10%;
+	/* position: absolute; */
+	/* right: 1%; */
 }
